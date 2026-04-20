@@ -1,0 +1,18 @@
+//I am using TMP36 ---(-40 to +125) At 0 degree centigrade 0.5V
+int readPin = A2;
+float temp;
+float readVal;
+float calVal;
+  void setup(){
+  pinMode(readPin , INPUT);
+  Serial.begin(9600);
+  
+}
+void loop(){
+  readVal = analogRead(readPin);
+  calVal = readVal *(5.0/1023.0);
+  temp = (calVal-0.5)*100;
+  Serial.println(temp);
+  delay(250);
+  
+}
